@@ -13,6 +13,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     
     var audioPlayer: AVAudioPlayer!
     
+    let soundArray = ["note1", "note2", "note3", "note4", "note5", "note6", "note7"]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
 
     @IBAction func notePressed(_ sender: UIButton) {
         
+        var selectedSoundFileName : String = soundArray[sender.tag]
+        
+        playSound()
+        
+    }
+    
+    func playSound() {
         let soundURL = Bundle.main.url(forResource: "note1", withExtension: "wav")
         
         do {
@@ -33,8 +42,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         
         audioPlayer.play()
     }
-    
-  
 
 }
 
